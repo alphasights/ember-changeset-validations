@@ -21,10 +21,9 @@ export default function getMessages(moduleMap = requirejs.entries, useCache = tr
     return cachedRef;
   }
 
-  let moduleKey = emberArray(keys(moduleMap))
-    .find((module) => isPresent(module.match(matchRegex)));
-  let messagesModule = isPresent(moduleKey) ? requireModule(moduleKey).default : defaultMessages;
+  let messagesModule = defaultMessages;
   cachedRef = messagesModule;
 
   return messagesModule;
 }
+
